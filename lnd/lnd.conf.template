@@ -1,0 +1,21 @@
+
+[Application Options]
+alias=$LND_ALIAS
+trickledelay=100
+rpclisten=0.0.0.0:10009
+tlsextradomain=$LND_TLS_EXTRA_DOMAIN
+
+[Bitcoin]
+bitcoin.active=1
+bitcoin.regtest=1
+bitcoin.node=bitcoind
+
+[Bitcoind]
+bitcoind.rpchost=bitcoin
+bitcoind.rpcuser=bitcoin_rpc
+bitcoind.rpcpass=bitcoin_rpc
+bitcoind.zmqpubrawblock=tcp://bitcoin:28332
+bitcoind.zmqpubrawtx=tcp://bitcoin:28333
+
+[gossip]
+gossip.sub-batch-delay=100ms

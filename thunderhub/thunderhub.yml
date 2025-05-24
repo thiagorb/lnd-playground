@@ -1,0 +1,17 @@
+masterPassword: password
+accounts:
+  - name: lnd-alice
+    serverUrl: lnd-alice:10009
+    macaroonPath: /home/thunderhub/lnd-alice/admin.macaroon
+    password: password
+    certificatePath: /home/thunderhub/lnd-alice/tls.cert
+  - name: lnd-bob
+    serverUrl: lnd-bob:10009
+    macaroonPath: /home/thunderhub/lnd-bob/admin.macaroon
+    password: password
+    certificatePath: /home/thunderhub/lnd-bob/tls.cert
+  - name: lnd-charlie
+    serverUrl: lnd-charlie:10009
+    macaroonPath: /home/thunderhub/lnd-charlie/admin.macaroon
+    password: password
+    certificatePath: /home/thunderhub/lnd-charlie/tls.cert

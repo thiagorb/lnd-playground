@@ -1,0 +1,42 @@
+name: lnd-playground
+
+services:
+  lnd-alice: &lnd-node
+    init: true
+    build:
+      context: lnd
+      args:
+        CONTAINER_UID: ${CONTAINER_UID:-1000}
+        CONTAINER_GID: ${CONTAINER_GID:-1000}
+      target: lnd
+    environment:
+      LND_TLS_EXTRA_DOMAIN: lnd-alice
+      LND_ALIAS: alice
+  lnd-bob:
+    <<: *lnd-node
+    environment:
+      LND_TLS_EXTRA_DOMAIN: lnd-bob
+      LND_ALIAS: bob
+  lnd-charlie:
+    <<: *lnd-node
+    environment:
+      LND_TLS_EXTRA_DOMAIN: lnd-charlie
+      LND_ALIAS: charlie
+  bitcoin:
+    init: true
+    build:
+      context: bitcoin
+      args:
+        CONTAINER_UID: ${CONTAINER_UID:-1000}
+        CONTAINER_GID: ${CONTAINER_GID:-1000}
+      target: bitcoin
+
+  thunderhub:
+    init: true
+    build:
+      context: thunderhub
+      args:
+        CONTAINER_UID: ${CONTAINER_UID:-1000}
+        CONTAINER_GID: ${CONTAINER_GID:-1000}
+    ports:
+      - 3001:3000
